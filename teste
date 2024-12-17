@@ -1,0 +1,15 @@
+Um palíndromo é um conjunto de caracteres que tem por característica poder ser lida
+independente da direção mantendo seu sentido.
+Note que, para que a palavra ou frase seja considerada palíndroma, os espaços devem ser
+ignorados. Para o problema atual, as frases são todas compostas com apenas letras minúsculas
+ou símbolos de espaço.
+O seu objetivo é, recebendo uma frase, determinar se ela é ou não um palíndromo.
+A entrada começa com uma string que representa a frase, com no máximo 100 caracteres.
+A saída deve retornar 1 se for um palíndromo ou 0 se não.
+Exemplos
+Entrada Saída
+mega bobagem 1
+araraquara 0
+ararra ararra 0
+a cara rajada da jararaca 1
+subi no onibus 1 
