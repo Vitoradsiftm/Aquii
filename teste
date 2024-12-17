@@ -1,15 +1,38 @@
-Um palíndromo é um conjunto de caracteres que tem por característica poder ser lida
-independente da direção mantendo seu sentido.
-Note que, para que a palavra ou frase seja considerada palíndroma, os espaços devem ser
-ignorados. Para o problema atual, as frases são todas compostas com apenas letras minúsculas
-ou símbolos de espaço.
-O seu objetivo é, recebendo uma frase, determinar se ela é ou não um palíndromo.
-A entrada começa com uma string que representa a frase, com no máximo 100 caracteres.
-A saída deve retornar 1 se for um palíndromo ou 0 se não.
-Exemplos
-Entrada Saída
-mega bobagem 1
-araraquara 0
-ararra ararra 0
-a cara rajada da jararaca 1
-subi no onibus 1 
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int verificar_palindromo(char frase[]) {
+    char frase_sem_espacos[101];
+    int j = 0;
+
+    // Remover espaços da frase
+    for (int i = 0; frase[i] != '\0'; i++) {
+        if (frase[i] != ' ') {
+            frase_sem_espacos[j++] = frase[i];
+        }
+    }
+    frase_sem_espacos[j] = '\0';
+
+    // Verificar se é igual ao seu reverso
+    int tamanho = strlen(frase_sem_espacos);
+    for (int i = 0; i < tamanho / 2; i++) {
+        if (frase_sem_espacos[i] != frase_sem_espacos[tamanho - i - 1]) {
+            return 0; // Não é um palíndromo
+        }
+    }
+    return 1; // É um palíndromo
+}
+
+int main() {
+    char frase[101];
+
+    // Entrada da frase
+    fgets(frase, 101, stdin);
+    frase[strcspn(frase, "\n")] = '\0'; // Remove o caractere de nova linha
+
+    // Saída
+    printf("%d\n", verificar_palindromo(frase));
+
+    return 0;
+}
